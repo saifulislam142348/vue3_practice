@@ -26,6 +26,9 @@
     v-for="product in products"
     :key="product.name"
     :product="product"
+    @buy_click="buyNow"
+    @cart_click="cartadd"
+    @fvt="addFvtChange"
   >
   </Product-Card>
 </template>
@@ -42,13 +45,15 @@ export default {
       products: [
         {
           name: "Iphone pro 14 max",
-          tumbail: "https://picsum.photos/id/1005/600/200",
+          tumbail: "img/sm.jpg",
           price: "2777",
+          addFvt: true,
         },
         {
           name: "Samsung x",
-          tumbail: "https://picsum.photos/id/1005/600/200",
+          tumbail: "img/ip.jpg",
           price: "40077",
+          addFvt: false,
         },
       ],
     };
@@ -59,6 +64,17 @@ export default {
     ContactView,
     TheCard,
     ProductCard,
+  },
+  methods: {
+    buyNow(product) {
+      console.log(product);
+    },
+    cartadd(product) {
+      console.log(product);
+    },
+    addFvtChange(product) {
+      product.addFvt = !product.addFvt;
+    },
   },
 };
 </script>

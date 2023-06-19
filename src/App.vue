@@ -1,31 +1,66 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <ContactView name="kamal"/>
-  <TheCard name="saiful islam" >
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odio voluptatum animi natus soluta alias laudantium pariatur sit est accusantium ipsam, eum nostrum? Distinctio blanditiis sint ab impedit quas fugit quam dolor culpa labore excepturi dolorum reprehenderit voluptate placeat expedita asperiores sunt in laborum facere, sit veritatis suscipit qui tempore?</p>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <ContactView name="kamal" />
+  <TheCard name="saiful islam">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odio
+      voluptatum animi natus soluta alias laudantium pariatur sit est
+      accusantium ipsam, eum nostrum? Distinctio blanditiis sint ab impedit quas
+      fugit quam dolor culpa labore excepturi dolorum reprehenderit voluptate
+      placeat expedita asperiores sunt in laborum facere, sit veritatis suscipit
+      qui tempore?
+    </p>
   </TheCard>
-   <TheCard name="title nme" >
+  <TheCard name="title nme">
     <template v-slot:info>
-   <p>laudantium pariatur sit est accusantium ipsam, eum nostrum? Distinctio blanditiis sint ab impedit quas fugit quam dolor culpa labore excepturi dolorum reprehenderit voluptate placeat expedita asperiores sunt in laborum facere, sit veritatis suscipit qui tempore?</p>
+      <p>
+        laudantium pariatur sit est accusantium ipsam, eum nostrum? Distinctio
+        blanditiis sint ab impedit quas fugit quam dolor culpa labore excepturi
+        dolorum reprehenderit voluptate placeat expedita asperiores sunt in
+        laborum facere, sit veritatis suscipit qui tempore?
+      </p>
     </template>
-       
-    </TheCard>
+  </TheCard>
+  <Product-Card
+    v-for="product in products"
+    :key="product.name"
+    :product="product"
+  >
+  </Product-Card>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import ContactView from './components/ContactView.vue'
-import TheCard from './components/TheCard.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import ContactView from "./components/ContactView.vue";
+import TheCard from "./components/TheCard.vue";
+import ProductCard from "./components/ProductCard.vue";
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      products: [
+        {
+          name: "Iphone pro 14 max",
+          tumbail: "https://picsum.photos/id/1005/600/200",
+          price: "2777",
+        },
+        {
+          name: "Samsung x",
+          tumbail: "https://picsum.photos/id/1005/600/200",
+          price: "40077",
+        },
+      ],
+    };
+  },
+  name: "App",
   components: {
     HelloWorld,
     ContactView,
-    TheCard
-  }
-}
+    TheCard,
+    ProductCard,
+  },
+};
 </script>
 
 <style>

@@ -31,6 +31,8 @@
     @fvt="addFvtChange"
   >
   </Product-Card>
+  <p>My Rating {{ myrating }}</p>
+  <The-Rating v-model="myrating"></The-Rating>
 </template>
 
 <script>
@@ -38,6 +40,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 import ContactView from "./components/ContactView.vue";
 import TheCard from "./components/TheCard.vue";
 import ProductCard from "./components/ProductCard.vue";
+import TheRating from "./components/TheRating.vue";
 
 export default {
   data() {
@@ -56,6 +59,7 @@ export default {
           addFvt: false,
         },
       ],
+      myrating: 3,
     };
   },
   name: "App",
@@ -64,6 +68,7 @@ export default {
     ContactView,
     TheCard,
     ProductCard,
+    TheRating,
   },
   methods: {
     buyNow(product) {

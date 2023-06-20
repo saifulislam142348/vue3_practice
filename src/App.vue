@@ -32,7 +32,30 @@
   >
   </Product-Card>
   <p>My Rating {{ myrating }}</p>
-  <The-Rating v-model="myrating"></The-Rating>
+  <TheRating v-model="myrating"></TheRating>
+  <div class="container">
+    <h1>Credit card input field</h1>
+    <CreditCard
+      v-model:nameOnCard="nameOnCard"
+      v-model:cardNumber="cardNumber"
+      v-model:expiry="expiry"
+      v-model:cvv="cvv"
+    ></CreditCard>
+    <br />
+    <br />
+    <hr />
+    <div class="jumbotron">
+      <label for=""> Name:{{ nameOnCard }}</label
+      ><br />
+
+      <label for=""> Card Number:{{ cardNumber }}</label
+      ><br />
+      <label for=""> Expiry:{{ expiry }}</label
+      ><br />
+      <label for=""> Cvv:{{ cvv }}</label
+      ><br />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -41,6 +64,7 @@ import ContactView from "./components/ContactView.vue";
 import TheCard from "./components/TheCard.vue";
 import ProductCard from "./components/ProductCard.vue";
 import TheRating from "./components/TheRating.vue";
+import CreditCard from "./components/CreditCard.vue";
 
 export default {
   data() {
@@ -60,6 +84,10 @@ export default {
         },
       ],
       myrating: 3,
+      nameOnCard: "",
+      cardNumber: null,
+      expiry: "",
+      cvv: "",
     };
   },
   name: "App",
@@ -69,6 +97,7 @@ export default {
     TheCard,
     ProductCard,
     TheRating,
+    CreditCard,
   },
   methods: {
     buyNow(product) {
